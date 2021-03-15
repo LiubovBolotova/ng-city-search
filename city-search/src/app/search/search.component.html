@@ -1,1 +1,26 @@
-<p>search works!</p>
+<form class="city-search-form">
+  <mat-form-field class="city-search-field">
+      <input
+        #search
+        type="text"
+        placeholder="Type a city name"
+        matInput
+        [formControl]="searchControl"
+      />
+  </mat-form-field>
+  <button
+    class="search-btn"
+    *ngIf="search.value"
+    matSuffix
+    mat-raised-button
+    (click)="
+    $event.stopPropagation();
+    searchByCity(search.value)">
+    Search
+  </button>
+</form>
+
+<mat-error
+  *ngIf="notFoundMessageIsShown"
+>{{noCityMessage}}
+</mat-error>

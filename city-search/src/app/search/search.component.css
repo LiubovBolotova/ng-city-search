@@ -1,0 +1,10 @@
+.city-search-field {
+  max-width: 30em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-btn {
+  background-color:#e6e6e6;
+  margin-bottom: 2em;
+}

@@ -1,1 +1,14 @@
-<p>chart works!</p>
+<div class="chart-overlay" *ngIf="isForecastDataShown && foreCastData.length">
+  <ngx-charts-bar-vertical
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="foreCastData"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel">
+  </ngx-charts-bar-vertical>
+</div>
