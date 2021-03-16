@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs";
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CitySearchService {
 
-  private _apiKey = 'bad46dfee1ae1125ec4faf31e63449de';
-  private _baseUrl = 'http://api.openweathermap.org/data/2.5/forecast';
+  private _apiKey = environment._apiKey;
+  private _baseUrl = environment._baseUrl;
 
   constructor(private http: HttpClient) { }
 
   getForecastData(cityId): Observable<any> {
     const url = `${this._baseUrl}?id=${cityId}&appid=${this._apiKey}`;
       return this.http.get<any>(url);
+  }
+
+  getCities() {
+    return this.http.get('../assets/city.list.json');
   }
 }

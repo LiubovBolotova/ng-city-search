@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IChartSettings, IForeCastDataForChart } from "../../types/types";
+import { ChartService } from "../services/chart.service";
 
 @Component({
   selector: 'app-chart',
@@ -7,32 +9,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ChartComponent {
 
-  @Input() set foreCastData(data: {}[]) {
+  @Input() set foreCastData(data: IForeCastDataForChart[]) {
     if (data && data.length) {
       this._forcastTempData = [...data];
     }
   }
 
-  @Input() isForecastDataShown;
+  @Input() isForecastDataShown: boolean;
 
-  public width: number = 700;
-  public view: any[] = [600, 400];
-  public showXAxis = true;
-  public showYAxis = true;
-  public gradient = true;
-  public showXAxisLabel = true;
-  public xAxisLabel = 'Date';
-  public showYAxisLabel = true;
-  public yAxisLabel = 'Temperature ℃';
-  public colorScheme = {
-    domain: ['#9370DB', '#87CEFA', '#FA8072', '#FF7F50', '#90EE90', '#9370DB']
-  };
+  public chartSettings: IChartSettings = this.chartService.defaultChartSettings;
 
-  private _forcastTempData: {}[] = [];
+  private _forcastTempData: IForeCastDataForChart[] = [];
 
-  constructor() {}
+  constructor(private chartService: ChartService) {}
 
-  get foreCastData(): {}[] {
+  get foreCastData(): IForeCastDataForChart[] {
     return this._forcastTempData;
   }
 }

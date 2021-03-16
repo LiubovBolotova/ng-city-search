@@ -1,14 +1,14 @@
 <div class="chart-overlay" *ngIf="isForecastDataShown && foreCastData.length">
   <ngx-charts-bar-vertical
-    [view]="view"
-    [scheme]="colorScheme"
+    [view]="chartSettings.view"
+    [scheme]="chartSettings.colorScheme"
     [results]="foreCastData"
-    [gradient]="gradient"
-    [xAxis]="showXAxis"
-    [yAxis]="showYAxis"
-    [showXAxisLabel]="showXAxisLabel"
-    [showYAxisLabel]="showYAxisLabel"
-    [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel">
+    [gradient]="chartSettings.gradient"
+    [xAxis]="chartSettings.showXAxis"
+    [yAxis]="chartSettings.showYAxis"
+    [showXAxisLabel]="chartSettings.showXAxisLabel"
+    [showYAxisLabel]="chartSettings.showYAxisLabel"
+    [xAxisLabel]="chartSettings.xAxisLabel"
+    [yAxisLabel]="chartSettings.yAxisLabel">
   </ngx-charts-bar-vertical>
 </div>
